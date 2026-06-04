@@ -89,9 +89,9 @@ monitor-kdmp/
 
 ## 📬 Kontak & Kolaborasi
 
-Dibuat sebagai bagian dari kajian kebijakan distribusi Koperasi Desa Merah Putih.
-
-**Pusat Riset Kependudukan — BRIN**
+Dibuat sebagai bagian dari kajian kebijakan distribusi Koperasi Desa Merah Putih oleh
+Kelompok Riset Kemiskinan, Ketimpangan dan Perlindungan Sosial
+Pusat Riset Kependudukan — BRIN
 📧 yanu005@brin.go.id
 
 Untuk pertanyaan atau kolaborasi, silakan buka **Issues** di repositori ini.
@@ -100,5 +100,5 @@ Untuk pertanyaan atau kolaborasi, silakan buka **Issues** di repositori ini.
 
 <div align="center">
   <sub>Data per Mei 2026 · 7.276 Kecamatan · 514 Kabupaten/Kota · 38 Provinsi</sub><br>
-  <sub>Simkopdes · GADM · BPS · Pusat Riset Kependudukan BRIN</sub>
+  <sub>Simkopdes · GADM · BPS </sub>
 </div>
