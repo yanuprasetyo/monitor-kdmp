@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -168,7 +167,6 @@
     <div class="ctrl-group">
       <span class="ctrl-label">Mode:</span>
       <button class="mode-btn active" id="btn-cluster" onclick="setMode('cluster')">● Klaster</button>
-      <button class="mode-btn" id="btn-heat" onclick="setMode('heat')">◉ Heatmap</button>
       <button class="mode-btn" id="btn-dot" onclick="setMode('dot')">· Titik</button>
     </div>
     <div class="ctrl-group">
@@ -345,13 +343,6 @@ function buildLayers() {
     clusterLayer.addLayer(marker);
   });
 
-  // Heat layer
-  const heatData = features.map(f => {
-    const [lng,lat] = f.geometry.coordinates;
-    return [lat, lng, Math.min(f.properties.n/30, 1)];
-  });
-  heatLayer = L.heatLayer(heatData, {radius:18, blur:15, maxZoom:12, gradient:{0:'#1a237e',0.3:'#4f7cff',0.6:'#38e8b0',1:'#ffd166'}});
-
   // Dot layer
   dotLayer = L.layerGroup();
   const dotR = parseInt(document.getElementById('dot-size').value);
@@ -382,7 +373,6 @@ function setMode(mode) {
   ['cluster','heat','dot'].forEach(m => document.getElementById('btn-'+m).classList.toggle('active', m===mode));
   [clusterLayer,heatLayer,dotLayer].forEach(l => l && map.removeLayer(l));
   if(mode==='cluster') map.addLayer(clusterLayer);
-  else if(mode==='heat') map.addLayer(heatLayer);
   else map.addLayer(dotLayer);
   document.getElementById('size-ctrl').style.display = mode==='dot' ? 'flex' : 'none';
 }
